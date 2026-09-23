@@ -34,18 +34,27 @@ Aplicar os conceitos de desenvolvimento de interfaces com React em um organizado
 
 ## Implementação
 
-A interface é composta pelos componentes `App`, `Tarefa`, `Formulario`, `Janela` e `Progresso`. Os dados e as funções de interação são compartilhados por meio de props.
+A interface está organizada em componentes: o `App` concentra a lista, os filtros e as ações sobre as tarefas. Os componentes recebem dados e funções por meio de props para apresentar os campos, cartões, indicadores e janelas.
 
-O hook `useState` controla a lista de tarefas, os filtros e as janelas da aplicação. O `useEffect` sincroniza as alterações com o `localStorage`, enquanto o `useRef` permite controlar o elemento nativo `<dialog>`. O formulário utiliza `FormData` para obter os valores preenchidos.
+O hook `useState` controla a lista de tarefas, os filtros, as janelas e os campos do formulário. Os eventos `onClick`, `onChange` e `onSubmit` conectam as ações do usuário às funções da aplicação. O `useEffect` salva a lista no `localStorage` e controla a abertura do elemento nativo `<dialog>`.
 
-As operações de cadastro, edição e exclusão geram novas listas para atualizar o estado. Os totais e a porcentagem de conclusão são calculados a partir das tarefas cadastradas, e a listagem utiliza renderização condicional para apresentar resultados ou indicar a ausência deles.
+As operações de cadastro, edição e exclusão geram novas listas para atualizar o estado. O método `map` atualiza e apresenta as tarefas, enquanto `filter` seleciona resultados e remove registros. Os totais e a porcentagem de conclusão são calculados a partir da lista. A renderização condicional apresenta resultados, avisos e janelas conforme o estado da aplicação.
 
 ## Organização do código
 
 ```text
 src/
-├── App.jsx       # Inicialização, componentes e lógica das tarefas
-└── styles.css    # Estilos e regras de responsividade
+├── main.jsx              # Inicialização do React
+├── App.jsx               # Estados, ações, filtros e integração
+├── styles.css            # Visual e responsividade
+├── tarefas.js            # Exemplos, disciplinas, datas e leitura dos dados
+└── components/
+    ├── Tarefa.jsx        # Cartão de uma tarefa e seus botões
+    ├── Formulario.jsx    # Campos de cadastro e edição
+    ├── Filtros.jsx       # Busca, situação, disciplina e ordenação
+    ├── Progresso.jsx     # Resumo, progresso e próxima entrega
+    ├── Modal.jsx         # Janela reutilizada pelos formulários e avisos
+    └── Layout.jsx        # Cabeçalho, apresentação, rodapé e ajuda
 ```
 
 ## Armazenamento
@@ -53,6 +62,8 @@ src/
 O projeto funciona no navegador, sem backend ou banco de dados externo. As tarefas são armazenadas no `localStorage` e permanecem disponíveis após recarregar a página. Não há autenticação ou sincronização entre dispositivos; a limpeza dos dados do site remove os registros salvos.
 
 No primeiro acesso, são carregadas cinco tarefas de exemplo para demonstrar as funcionalidades. Esses registros podem ser editados ou excluídos.
+
+O formato de armazenamento das tarefas foi mantido para preservar os registros de versões anteriores. Se os dados não puderem ser lidos, a aplicação exibe um aviso e exemplos temporários, sem substituir o conteúdo salvo.
 
 ## Execução local
 
