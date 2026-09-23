@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { StrictMode, useEffect, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
+import "./styles.css";
 import {
   ArrowDownWideNarrow, ArrowRight, ArrowUpRight, BookOpen, CalendarDays, Check,
   CheckCheck, CircleHelp, Clock3, GraduationCap, ListTodo, Pencil, Plus,
@@ -167,7 +169,7 @@ function carregarTarefas() {
   }
 }
 
-export default function App() {
+function App() {
   // useState guarda os dados. Quando mudam, o React atualiza a tela.
   const [inicio] = useState(carregarTarefas);
   const [tarefas, setTarefas] = useState(inicio.tarefas);
@@ -934,3 +936,10 @@ function Progresso({ tarefas, aoSelecionarDisciplina }) {
     </aside>
   );
 }
+
+// Inicializa a aplicação no elemento root do index.html.
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

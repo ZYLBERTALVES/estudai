@@ -44,9 +44,8 @@ As operações de cadastro, edição e exclusão geram novas listas para atualiz
 
 ```text
 src/
-├── App.jsx       # Componentes, interface e lógica das tarefas
-├── styles.css    # Estilos e regras de responsividade
-└── main.jsx      # Inicialização do React
+├── App.jsx       # Inicialização, componentes e lógica das tarefas
+└── styles.css    # Estilos e regras de responsividade
 ```
 
 ## Armazenamento
