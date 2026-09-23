@@ -280,10 +280,6 @@ export default function App() {
               estudaí<span className="brand-period">.</span>
             </span>
           </a>
-          <span className="header-divider" />
-          <span className="header-caption">
-            Um lugar para organizar suas ideias.
-          </span>
           <button
             className="help-button"
             onClick={() => setJanela({ type: "help" })}
@@ -300,9 +296,6 @@ export default function App() {
       <main className="page-shell">
         <div className="page-heading">
           <div>
-            <span className="eyebrow greeting">
-              BORA FAZER ACONTECER <span>✦</span>
-            </span>
             <h1>Seu semestre, mais leve.</h1>
             <p>Organize as tarefas. Encontre seu ritmo. Vá mais longe.</p>
           </div>
@@ -314,9 +307,6 @@ export default function App() {
 
         <section className="hero-banner" aria-label="Boas-vindas">
           <div className="hero-copy">
-            <span className="hero-tag">
-              <span /> SEU ESPAÇO DE ESTUDOS
-            </span>
             <h2>
               Pequenos passos.
               <br />
@@ -430,7 +420,6 @@ export default function App() {
                 <h2 id="tasks-heading">
                   Minhas tarefas <span>{tarefas.length}</span>
                 </h2>
-                <p>Um pouquinho de organização muda tudo.</p>
               </div>
               <button
                 className="button button-primary"
